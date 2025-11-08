@@ -2,8 +2,286 @@
 
 **Project**: Beabodocl-Unity  
 **Date Created**: November 7, 2025  
+**Date Updated**: November 7, 2025 (Added Quest 3 Compatibility Issues)  
 **Platform**: Unity 2022.3 LTS  
 **Status**: Ready for Issue Creation
+
+---
+
+## ⚠️ URGENT: Quest 3 Compatibility Issues (Phase 0)
+
+**CRITICAL**: The project has compatibility issues that prevent Quest 3 deployment. These must be fixed FIRST before any other development.
+
+**See**: [QUEST3_COMPATIBILITY_REVIEW.md](./QUEST3_COMPATIBILITY_REVIEW.md) for detailed analysis
+
+### Quest 3 Configuration Issues (Create These Issues First)
+
+---
+
+#### Issue #QUEST-1: Downgrade Unity Version to 2022.3 LTS
+
+**Labels:** `critical`, `configuration`, `quest3`, `P0`  
+**Priority:** P0 - BLOCKING  
+**Effort:** 1-2 hours  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Project is using Unity 6 (6000.2.10f1) which is too new and may have compatibility issues with Quest 3 SDK and packages.
+
+**Fix Required:**
+1. Download Unity 2022.3 LTS from Unity Hub
+2. Open project in Unity 2022.3 LTS
+3. Allow Unity to upgrade/downgrade project files
+4. Resolve any package compatibility issues
+5. Verify all XR packages still work
+
+**Acceptance Criteria:**
+- [ ] Project opens in Unity 2022.3 LTS without errors
+- [ ] All XR packages compatible with 2022.3 LTS
+- [ ] Test scene loads and runs in editor
+- [ ] No console errors on project load
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #1
+
+---
+
+#### Issue #QUEST-2: Fix Package Identifier for Quest 3
+
+**Labels:** `critical`, `android`, `quest3`, `P0`  
+**Priority:** P0 - BLOCKING  
+**Effort:** 15 minutes  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Current package identifier is `com.DefaultCompany.VRMultiplayer` which is a template default and doesn't match the beabodocl project.
+
+**Current State:**
+```
+Android: com.DefaultCompany.VRMultiplayer
+```
+
+**Fix Required:**
+```
+Android: com.beabodocl.unity
+```
+
+**Steps:**
+1. Unity → File → Build Settings → Player Settings
+2. Navigate to Android tab
+3. Other Settings → Identification
+4. Change Package Name to: `com.beabodocl.unity`
+5. Save project
+
+**Acceptance Criteria:**
+- [ ] Package name is `com.beabodocl.unity`
+- [ ] Build Settings shows correct package name
+- [ ] No build errors after change
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #2
+
+---
+
+#### Issue #QUEST-3: Change Graphics API to OpenGLES3
+
+**Labels:** `critical`, `graphics`, `quest3`, `P0`  
+**Priority:** P0 - BLOCKING  
+**Effort:** 15 minutes  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Project is configured to use Vulkan graphics API. Quest 3 deployment guide recommends OpenGLES3 for initial testing and stability.
+
+**Current State:**
+- Graphics API: Vulkan (0x15000000)
+
+**Fix Required:**
+- Graphics API: OpenGLES3 only
+
+**Steps:**
+1. Unity → Player Settings → Android
+2. Other Settings → Rendering
+3. Graphics APIs: Remove "Vulkan"
+4. Add "OpenGLES3" if not present
+5. Uncheck "Auto Graphics API"
+6. Move OpenGLES3 to top of list
+
+**Acceptance Criteria:**
+- [ ] Graphics APIs shows only "OpenGLES3"
+- [ ] Auto Graphics API is disabled
+- [ ] Test build completes successfully
+- [ ] App runs on Quest 3 without graphics errors
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #3
+
+---
+
+#### Issue #QUEST-4: Verify ARM64-Only Configuration
+
+**Labels:** `critical`, `android`, `quest3`, `P0`  
+**Priority:** P0 - BLOCKING  
+**Effort:** 10 minutes  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Quest 3 only supports 64-bit (ARM64) architecture. Need to verify ARMv7 is disabled and only ARM64 is selected.
+
+**Verification Needed:**
+- [ ] Only ARM64 is checked in Target Architectures
+- [ ] ARMv7 is unchecked
+- [ ] IL2CPP scripting backend is selected (already correct)
+
+**Steps:**
+1. Unity → Player Settings → Android
+2. Other Settings → Configuration
+3. Scripting Backend: Verify IL2CPP
+4. Target Architectures: Check ONLY ARM64
+5. Uncheck ARMv7 if present
+
+**Acceptance Criteria:**
+- [ ] Scripting Backend is IL2CPP
+- [ ] Target Architectures shows only ARM64
+- [ ] Build succeeds for ARM64
+- [ ] APK runs on Quest 3
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #4
+
+---
+
+#### Issue #QUEST-5: Update Android Target SDK to API 33
+
+**Labels:** `high-priority`, `android`, `quest3`, `P1`  
+**Priority:** P1 - High  
+**Effort:** 10 minutes  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Current target SDK is API 32 (Android 12). Quest 3 supports Android 13 (API 33) and targeting latest API provides better features and optimization.
+
+**Current State:**
+```
+AndroidMinSdkVersion: 30
+AndroidTargetSdkVersion: 32
+```
+
+**Recommended State:**
+```
+AndroidMinSdkVersion: 29
+AndroidTargetSdkVersion: 33
+```
+
+**Steps:**
+1. Unity → Player Settings → Android
+2. Other Settings → Identification
+3. Minimum API Level: 29 (Android 10.0)
+4. Target API Level: 33 (Android 13.0)
+
+**Acceptance Criteria:**
+- [ ] Minimum API Level is 29
+- [ ] Target API Level is 33
+- [ ] Build completes successfully
+- [ ] App installs and runs on Quest 3
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #5
+
+---
+
+#### Issue #QUEST-6: Verify Oculus XR Plugin Configuration
+
+**Labels:** `critical`, `xr`, `quest3`, `P0`  
+**Priority:** P0 - BLOCKING  
+**Effort:** 15 minutes  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Need to verify that Oculus XR Plugin is properly enabled in XR Plug-in Management for Android platform.
+
+**Verification Needed:**
+1. XR Plug-in Management shows Oculus enabled for Android
+2. Oculus XR Plugin settings are properly configured
+3. Stereo rendering mode is set appropriately
+
+**Steps:**
+1. Unity → Edit → Project Settings
+2. XR Plug-in Management
+3. Select Android tab
+4. Verify "Oculus" is checked ✅
+5. Click on Oculus settings
+6. Verify Stereo Rendering Mode (recommend: Multiview)
+
+**Acceptance Criteria:**
+- [ ] XR Plug-in Management shows Oculus enabled for Android
+- [ ] Oculus XR Plugin settings accessible
+- [ ] Stereo Rendering Mode configured
+- [ ] VR mode activates on Quest 3
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #7
+
+---
+
+#### Issue #QUEST-7: Add Newtonsoft.Json Package
+
+**Labels:** `critical`, `package`, `api`, `P0`  
+**Priority:** P0 - BLOCKING  
+**Effort:** 10 minutes  
+**Milestone:** v0.2.0 - API Integration
+
+**Problem:**
+IMPLEMENTATION_PLAN.md specifies using Newtonsoft.Json for API serialization, but this package is not currently installed.
+
+**Package Required:**
+- com.unity.nuget.newtonsoft-json
+
+**Steps:**
+1. Unity → Window → Package Manager
+2. Click "+" button
+3. Select "Add package from git URL"
+4. Enter: `com.unity.nuget.newtonsoft-json`
+5. Click "Add"
+6. Wait for package to install
+
+**Acceptance Criteria:**
+- [ ] Newtonsoft.Json package appears in Package Manager
+- [ ] Can reference `using Newtonsoft.Json;` in scripts
+- [ ] No compilation errors
+- [ ] JSON serialization/deserialization works
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Package Analysis
+
+---
+
+#### Issue #QUEST-8: Update Company Name
+
+**Labels:** `high-priority`, `configuration`, `P1`  
+**Priority:** P1 - High  
+**Effort:** 5 minutes  
+**Milestone:** v0.1.0 - Quest 3 Compatibility
+
+**Problem:**
+Company name is still set to "DefaultCompany" which is Unity's default placeholder.
+
+**Current State:**
+```
+companyName: DefaultCompany
+productName: beabodocl-unity
+```
+
+**Fix Required:**
+```
+companyName: Buddharauer
+productName: Beabodocl Research Platform
+```
+
+**Steps:**
+1. Unity → Player Settings → Company Name
+2. Change to: "Buddharauer"
+3. Product Name: "Beabodocl Research Platform"
+
+**Acceptance Criteria:**
+- [ ] Company Name updated
+- [ ] Product Name updated
+- [ ] Shows correctly in Quest 3 library
+
+**Reference:** QUEST3_COMPATIBILITY_REVIEW.md - Issue #8
 
 ---
 
