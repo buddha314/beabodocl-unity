@@ -123,18 +123,24 @@ For detailed setup instructions including network scenarios and VR headset conne
 
 ## Documentation
 
-### Getting Started
-- **[IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)** - Complete Unity implementation guide
-- **[PRIORITIZED_TASKS.md](./PRIORITIZED_TASKS.md)** - Phase-based development plan
-- **[GITHUB_ISSUES.md](./GITHUB_ISSUES.md)** - Detailed issue descriptions
-- **STARTUP_GUIDE.md** - Quick reference for running the project (coming soon)
+### 📋 Quick Reference
+- **[PROJECT_TASKS.md](./PROJECT_TASKS.md)** - Master task list (85 tasks organized by priority)
+- **[UNITY_INTERFACE_DESIGN.md](./UNITY_INTERFACE_DESIGN.md)** - Complete visual/spatial design specification
+- **[IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)** - Detailed implementation guide with code examples
+- **[GITHUB_ISSUES_COMPLETE.md](./GITHUB_ISSUES_COMPLETE.md)** - Ready-to-create GitHub issues
 
-### Project Information
-- **[HANDOFF.md](./HANDOFF.md)** - Project handoff document with overview and next steps
-- **README.md** - This file
+### 🚀 Getting Started
+1. **[QUEST3_COMPATIBILITY_REVIEW.md](./QUEST3_COMPATIBILITY_REVIEW.md)** - Fix critical Quest 3 configuration issues (DO THIS FIRST)
+2. **[HANDOFF_2025-11-10_UNITY_2022_MIGRATION.md](./HANDOFF_2025-11-10_UNITY_2022_MIGRATION.md)** - Unity 2022.3 LTS migration details
+3. **[specs/QUEST3_DEPLOYMENT_GUIDE.md](./specs/QUEST3_DEPLOYMENT_GUIDE.md)** - Deploy to Quest 3 headset
+
+### 📚 All Documentation
+See **[docs/DOCUMENTATION_INDEX.md](./docs/DOCUMENTATION_INDEX.md)** for complete documentation index organized by role and purpose.
 
 ### GitHub Issues
-View and track development: https://github.com/buddha314/beabodocl-unity/issues (to be created)
+**Total Issues**: 85+ tasks ready for creation  
+See [GITHUB_ISSUES_COMPLETE.md](./GITHUB_ISSUES_COMPLETE.md) for copy/paste issue creation  
+Track development: https://github.com/buddha314/beabodocl-unity/issues (to be created)
 
 ## Unity Project Structure
 
