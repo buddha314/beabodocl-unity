@@ -1,0 +1,19 @@
+// Instructions to Create a Hexagonal Cylinder at the Origin
+// 
+// 1. In Unity Editor:
+//    - Go to GameObject > Create Empty
+//    - Name it "HexagonalCylinder"
+//    - Ensure position is set to (0, 0, 0) in the Inspector
+//
+// 2. Add the HexagonalCylinder component:
+//    - Select the GameObject
+//    - Click "Add Component" in the Inspector
+//    - Search for "HexagonalCylinder" and add it
+//    - The script will automatically add MeshFilter and MeshRenderer components
+//
+// 3. Configure (optional):
+//    - Adjust "Radius" and "Height" parameters in the Inspector
+//    - Assign a custom Material if desired
+//    - Press Play to see the hexagonal cylinder generated
+//
+// The hexagonal cylinder will be created procedurally when you enter Play mode.

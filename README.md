@@ -169,6 +169,15 @@ beabodocl-unity/
     └── XRSettings.asset              # XR configuration
 ```
 
+### 3D Assets
+
+**Blender Source Files**: `.blend` files are excluded from version control and stored locally at:
+```
+C:\Users\b\Proton Drive\buddha_314\My files\3D\beabadoc
+```
+
+Only exported models (`.fbx`, `.obj`) are committed to the repository. See `.gitignore` for details.
+
 ## Features
 
 ### Current Features (v0.1.0)
@@ -176,6 +185,7 @@ beabodocl-unity/
 - ✅ VR support via XR Interaction Toolkit
 - ✅ Basic locomotion (teleportation)
 - ✅ Desktop and VR input handling
+- ✅ Scene setup: Floor, Wall, Screen (chat panel location)
 
 ### Planned Features
 

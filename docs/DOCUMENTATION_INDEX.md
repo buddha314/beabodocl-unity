@@ -34,6 +34,7 @@
 | **[QUEST3_COMPATIBILITY_REVIEW.md](../QUEST3_COMPATIBILITY_REVIEW.md)** | Quest 3 configuration requirements and fixes | Developers |
 | **[specs/QUEST3_DEPLOYMENT_GUIDE.md](../specs/QUEST3_DEPLOYMENT_GUIDE.md)** | Step-by-step Quest 3 deployment instructions | Developers |
 | **[HANDOFF_2025-11-10_UNITY_2022_MIGRATION.md](../HANDOFF_2025-11-10_UNITY_2022_MIGRATION.md)** | Unity 2022.3 LTS migration details | Developers |
+| **[SCENE_STATUS.md](./SCENE_STATUS.md)** | Current scene layout and development status | Developers |
 
 ### Project Overview
 
