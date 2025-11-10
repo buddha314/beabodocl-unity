@@ -97,3 +97,46 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Android build cache
+/[Aa]ndroid/
+
+# Quest/Oculus specific
+/[Aa]ssets/Oculus/VR/Plugins/
+/[Aa]ssets/Oculus.meta
+
+# XR Plugin Management auto-generated settings
+/XR/
+
+# TextMesh Pro
+/[Aa]ssets/TextMesh?Pro/Resources/Fonts?&?Materials/
+/[Aa]ssets/TextMesh?Pro/Resources/Sprite?Assets/
+
+# BurstCache
+BurstCache/
+
+# Package backups (from version switches)
+Packages/*.backup
+
+# Unity Package Manager locks (keep manifest.json, ignore lock file)
+Packages/packages-lock.json
+
+# Plastic SCM (if not using)
+.plastic/
+
+# Unity Collaborate (deprecated)
+.collabignore
+.collab/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Rider
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+*.code-workspace
